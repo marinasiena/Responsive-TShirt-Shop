@@ -1,0 +1,344 @@
+
+body {
+  background-image: url("http://vallyre.com/ironyard/marina-bg.jpg");
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  height:auto;
+}
+header {
+  background: #000;
+  margin-top: 4%;
+  padding: 2%;
+}
+header h1 {
+  color: #f5f5f5;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+/*Shirt styling and flipping-----------*/
+.all-shirts {
+  overflow:hidden;
+  text-align: center;
+  width: 100%;
+}
+.shirt-container {
+  background: #b7afb6;
+  border: 3px groove #b8b8b8;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 5% 5%;
+  width:inherit;
+}
+.shadow {
+  box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.8);
+}
+.shirt-flip {
+  background: #ccc;
+  border-radius: 10px 0;
+  padding:10px;
+  min-height: 250px;
+  overflow:hidden;
+  perspective: 1000px;
+  position: relative;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shirt-flip img {
+  max-width:108%;
+}
+img.shirt-flip--top {
+  align-self: flex-start;
+}
+img.shirt-flip--bottom {
+  align-self: flex-end;
+}
+
+}
+.shirt-front {
+  left:0;
+  position:absolute;
+  top:0;
+  transition: all .3s ease-in;
+}
+.shirt-back {
+  position:absolute;
+  max-width:108%;
+  opacity: 0;
+  transition: all .3s ease-in;
+  width: 100%;
+}
+.flip-button {
+  background: #b7afb6;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  box-shadow: 0 0 5px gray;
+  color:#f5f5f5;
+  display:block;
+  height:40px;
+  line-height:40px;
+  position: absolute;
+  right: 15px;
+  text-align:center;
+  top: 5px;
+  transition: all .2s ease-in-out;
+  width:40px;
+  z-index: 5;
+}
+.flip-button:hover:focus {
+	background-color:#a1869e;
+}
+.flip-button:hover:focus ~ .shirt-front{
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+.flip-button:hover:focus ~ .shirt-back {
+	opacity: 1;
+  transform: rotateY(180deg);
+}
+
+/*Shirt menu---------------------------*/
+.shirt-menu {
+  color: #f5f5f5;
+  display: flex;
+  justify-content: space-around;
+  margin-top:5%;
+  width:100%;
+  position: relative;
+}
+.menu-item {
+  background: #6c646b;
+  border: 2px solid #ccc;
+  height: 38px;
+  transition: .3s ease-in;
+  width:38px;
+}
+.menu-item:hover {
+  background-color:#a1869e;
+  border-color: #f5f5f5;
+  /*overflow: visible;*/
+}
+
+.menu-zoom, .menu-fav, .menu-shop {
+  padding-top: 10px;
+}
+.menu-size {
+  transition: .6s ease-in;
+}
+.menu-size span {
+  display:block;
+  padding-top: 12px;
+  text-align: center;
+}
+.menu-size-options { /*Size submenu*/
+  bottom:-70px;
+  height:204px;
+  opacity: 0;
+  position:absolute;
+  right:15px;
+  transition: .2s ease-in;
+  width:64px;
+}
+.menu-size-options li {
+  border:none;
+  display: block;
+  height:70px;
+  margin: 0 auto;
+  width:70px;
+}
+.menu-size-options li:nth-child(1) { /*XL*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/XL.png") no-repeat center;
+  background-size: 60px;
+  height:65px;
+  width:60px;
+}
+.menu-size-options li:nth-child(2) { /*L*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/L.png") no-repeat center;
+  background-size: 50px;
+  height:55px;
+  width:60px;
+}
+.menu-size-options li:nth-child(3) { /*M*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/M.png") no-repeat center;
+  background-size: 40px;
+  height:45px;
+  width:60px;
+}
+.menu-size-options li:nth-child(4) { /*S*/
+  background: #b7afb6 url("http://vallyre.com/ironyard/S.png") no-repeat center;
+  background-size: 30px;
+  height:35px;
+  width:60px;
+}
+.menu-size-options li:hover {
+  background-color:#a1869e;
+}
+.menu-size:hover > .menu-size-options {
+  opacity: 1;
+  transform: translateY(-315px);
+  transition: .5s ease-in;
+}
+
+.menu-color {
+  transition: .3s ease-in;
+}
+.menu-color span {
+  background-color: #4d97af;
+  display: block;
+  height:100%;
+}
+.menu-color-options { /*Color submenu*/
+  bottom:-60px;
+  display:block;
+  height:67px;
+  opacity: 0;
+  position: absolute;
+  right:15px;
+  transition: .2s ease-in;
+  width:66px;
+}
+.menu-color-options li {
+  border: 1px ridge #ccc;
+  display:inline-block;
+  height: 25px;
+  margin: 2px;
+  min-width: 5px;
+  transition: .2s ease-in;
+  width: 25px;
+}
+.menu-color-options li:nth-child(1) { /*purple*/
+  background: #9265ae;
+  transform-origin: top left;
+}
+.menu-color-options li:nth-child(2) { /*green*/
+  background: #92ae47;
+  transform-origin: top right;
+}
+.menu-color-options li:nth-child(3) { /*blue*/
+  background: #4d97af;
+  transform-origin: bottom left;
+}
+.menu-color-options li:nth-child(4) { /*yellow*/
+  background: #af9143;
+  transform-origin: bottom right;
+}
+.menu-color-options li:hover {
+  transform: scale(1.2);
+}
+.menu-color:hover > .menu-color-options{
+  opacity: 1;
+  transform: translateY(-178px);
+  transition: .5s ease-in;
+}
+.menu-shop {
+  position:relative;
+}
+.menu-shop span {
+  background: #6c646b;
+  border: 1px solid #f5f5f5;
+  bottom:40px;
+  display:block;
+  font-size: .5em;
+  margin: 1px 0;
+  opacity: 0;
+  padding: 4px 0;
+  position:absolute;
+  text-align: center;
+  transition: all 3s linear;
+}
+.menu-shop:active > span {
+  opacity: 1;
+  transition: all 0s linear;
+}
+
+/*Arrowbox---------------------------*/
+.arrow-box {
+  background: #b7afb6;
+  border: 2px solid #fdfdfd;
+  position: relative;
+}
+.arrow-box:after, .arrow-box:before {
+  border: solid transparent;
+  content: " ";
+	left: 50%;
+	height: 0;
+	position: absolute;
+	pointer-events: none;
+  top: 100%;
+  width: 0;
+}
+.arrow-box:after {
+	border-color: rgba(183, 175, 182, 0);
+	border-top-color: #b7afb6;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.arrow-box:before {
+	border-color: rgba(253, 253, 253, 0);
+	border-top-color: #fdfdfd;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+/* Shirt Footer----------------------------*/
+article footer {
+  min-height: 5%;
+  padding: 5% 0;
+  margin-bottom: 10%;
+}
+.shirt-name {
+  font-size: 2rem;
+  float:left;
+  margin-left: 3%;
+}
+.shirt-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  float: right;
+  margin-right: 3%;
+}
+/* Page Footer----------------------------*/
+.page-footer {
+  background: black;
+  color: #a1869e;
+  height: 52px;
+  padding-top: 20px;
+  text-align: center;
+  width:100%;
+}
+@media (min-width: 500px) {
+  .shirt-container {
+    margin:2% 2%;
+    width:45%;
+  }
+header {
+    margin-top: 2%;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    }
+}
+@media (min-width: 800px) {
+  .shirt-container {
+    margin:1% 1%;
+    width:30%;
+  }
+  header h1 {
+    font-size: 2.3rem;
+  }
+}
+@media (min-width: 1023px) {
+  .shirt-container {
+    margin:1% 0.5%;
+    width:23%;
+  }
+  header {
+    margin-top: 1%;
+  }
+    )
+}
