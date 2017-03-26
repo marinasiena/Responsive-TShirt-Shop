@@ -1,2 +1,2 @@
 # Responsive-TShirt-Shop
-https://marinasiena.github.io/Responsive-TShirt-Shop/
+https://vallyre.github.io/Responsive-TShirt-Shop/
